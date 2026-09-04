@@ -35,11 +35,11 @@
   .serif{font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-weight:500}
 
   /* ————— davetiye kartı ————— */
-  .stage{display:flex; align-items:center; justify-content:center; min-height:100vh; padding:56px 18px}
+  .stage{display:flex; align-items:center; justify-content:center; min-height:100vh; padding:clamp(20px,3.5vh,40px) 18px}
   .card{
     position:relative; width:100%; max-width:600px; text-align:center;
     border:1px solid var(--gold); outline:1px solid var(--gold-dim); outline-offset:7px;
-    padding:clamp(40px, 8vw, 72px) clamp(26px, 6vw, 58px);
+    padding:clamp(26px, 4.5vh, 44px) clamp(24px, 6vw, 54px);
     background:rgba(25,21,16,.55);
     animation:rise .8s ease-out both;
   }
@@ -51,23 +51,30 @@
   .c3{bottom:-1px; left:-1px; border-bottom-width:2px; border-left-width:2px}
   .c4{bottom:-1px; right:-1px; border-bottom-width:2px; border-right-width:2px}
 
-  .card svg.coin{width:74px; height:74px; margin:26px auto 14px; display:block}
-  .word{font-weight:700; font-size:clamp(44px,9vw,58px); letter-spacing:-.02em; line-height:1}
+  .card svg.coin{width:clamp(52px,7vh,64px); height:auto; margin:14px auto 8px; display:block}
+  .word{font-weight:700; font-size:clamp(40px,7.5vh,52px); letter-spacing:-.02em; line-height:1}
   .word span{color:var(--gold)}
-  .slogan{font-size:clamp(20px,4vw,25px); color:var(--gold); margin-top:12px}
-  .rule{display:flex; align-items:center; gap:14px; margin:30px auto; max-width:300px}
+  .slogan{font-size:clamp(19px,3.4vh,24px); color:var(--gold); margin-top:8px}
+  .rule{display:flex; align-items:center; gap:14px; margin:clamp(16px,2.6vh,24px) auto; max-width:300px}
   .rule::before,.rule::after{content:""; flex:1; height:1px; background:var(--gold-dim)}
   .dia{width:7px; height:7px; background:var(--gold); transform:rotate(45deg); flex:none}
   .when{font-size:13px; letter-spacing:.3em; color:var(--dim)}
-  .lead{color:var(--dim); font-size:16px; max-width:400px; margin:22px auto 0}
+  .lead{color:var(--dim); font-size:15.5px; max-width:410px; margin:14px auto 0}
   .lead b{color:var(--text); font-weight:500}
-  .cta{
-    display:inline-block; margin-top:32px; border:1px solid var(--gold); color:var(--gold);
-    padding:14px 30px; font-weight:700; font-size:15px; letter-spacing:.02em;
+  .stores{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:clamp(16px,2.6vh,24px)}
+  .store{
+    border:1px solid var(--gold); color:var(--gold); min-width:168px;
+    padding:13px 22px; font-weight:700; font-size:15px;
     transition:background .18s, color .18s;
   }
-  .cta:hover{background:var(--gold); color:var(--bg)}
-  .scrollhint{margin-top:34px; font-size:12px; color:var(--dim); letter-spacing:.22em}
+  .store:hover{background:var(--gold); color:var(--bg)}
+  .storenote{font-size:12px; color:var(--dim); margin-top:9px; letter-spacing:.05em}
+  .cta2{
+    display:inline-block; margin-top:clamp(12px,2vh,18px); color:var(--gold); font-size:14px;
+    border-bottom:1px solid var(--gold-dim); padding-bottom:2px;
+  }
+  .cta2:hover{color:var(--gold-hi); border-color:var(--gold)}
+  .scrollhint{margin-top:clamp(12px,2.2vh,20px); font-size:12px; color:var(--dim); letter-spacing:.22em}
   .scrollhint a{color:var(--dim)} .scrollhint a:hover{color:var(--gold)}
 
   /* ————— merasim programı ————— */
@@ -130,10 +137,16 @@
 
     <div class="rule"><span class="dia"></span></div>
 
-    <div class="when">YAKINDA &nbsp;·&nbsp; GOOGLE PLAY</div>
+    <div class="when">ÇOK YAKINDA</div>
     <p class="lead">Düğün takı defterinizin <b>dijitale taşınma merasimine</b> davetlisiniz: kim ne taktı, bugün ne ediyor, sırada hangi düğün var — hepsi tek defterde.</p>
 
-    <a class="cta" href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">Davete icabet: takipte kal</a>
+    <div class="stores">
+      <a class="store" href="#" onclick="return false">App Store</a>
+      <a class="store" href="#" onclick="return false">Google Play</a>
+    </div>
+    <div class="storenote">Bağlantılar yayın gününde aktifleşecek</div>
+
+    <a class="cta2" href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">Davete icabet: @tutdiye.tr'yi takip edin</a>
 
     <div class="scrollhint"><a href="#program">MERASİM PROGRAMI ↓</a></div>
   </div>
@@ -192,7 +205,7 @@
 <section class="lcv">
   <div class="box">
     <h2>L.C.V.</h2>
-    <p>Uygulama Google Play'de yayınlandığında ilk siz haberdar olun. Lütfen cevabınızı takiple bildiriniz.</p>
+    <p>Uygulama App Store ve Google Play'de yayınlandığında ilk siz haberdar olun. Lütfen cevabınızı takiple bildiriniz.</p>
     <a class="btn" href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">@tutdiye.tr'yi takip et</a>
     <span class="alt">ya da ara sıra <b>tutdiye.com</b>'a uğrayın — kapımız açık.</span>
   </div>
