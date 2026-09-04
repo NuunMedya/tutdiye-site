@@ -4,178 +4,206 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tut. — yut diye değil, tut diye verdim</title>
-<meta name="description" content="TUT: düğün takı defteri. Kim ne taktı, bugün ne ediyor, sırada hangi düğün var — canlı altın kuru ve tarihli değer hesabıyla, hepsi cebinde.">
-<meta property="og:title" content="tut. — düğün takı defteri">
-<meta property="og:description" content="Yut diye değil, tut diye verdim. Takı defterin cebinde: canlı kur, o günkü değer, kişi dengesi, PDF/Excel.">
+<meta name="description" content="TUT: düğün takı defteri. Kim ne taktı, bugün ne ediyor, sırada hangi düğün var — davetiyeniz cebinize.">
+<meta property="og:title" content="tut. — davetlisiniz">
+<meta property="og:description" content="Yut diye değil, tut diye verdim. Düğün takı defteri yakında Google Play'de.">
 <meta property="og:url" content="https://tutdiye.com">
 <meta name="theme-color" content="#131008">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="55" cy="60" r="34" fill="%23E8B33A"/><rect x="50" y="38" width="9" height="40" rx="4.5" fill="%23131008"/><rect x="40" y="49" width="27" height="8" rx="4" fill="%23131008"/><rect x="50" y="70" width="16" height="8" rx="4" fill="%23131008"/><circle cx="98" cy="88" r="7" fill="%23E8B33A"/></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#131008; --bg2:#191510; --surface:#201B12; --line:rgba(232,179,58,.16);
-    --line2:rgba(245,239,227,.10); --gold:#E8B33A; --gold-hi:#F6D278;
-    --text:#F5EFE3; --dim:#9A9184; --ribbon:#B3242F;
+    --bg:#131008; --gold:#E8B33A; --gold-hi:#F6D278; --gold-dim:rgba(232,179,58,.38);
+    --line:rgba(232,179,58,.22); --text:#F5EFE3; --dim:#9A9184; --ring:#B98A1F;
   }
   *{box-sizing:border-box; margin:0}
   html{scroll-behavior:smooth}
   body{
-    background:radial-gradient(90% 32% at 50% 0%, rgba(232,179,58,.10), transparent 60%), var(--bg);
-    color:var(--text); font-family:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    background:
+      radial-gradient(70% 26% at 50% 0%, rgba(232,179,58,.12), transparent 60%),
+      radial-gradient(70% 26% at 50% 100%, rgba(232,179,58,.07), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
     font-size:17px; line-height:1.6;
+    min-height:100vh;
   }
-  .wrap{max-width:960px; margin:0 auto; padding:0 22px}
   a{color:var(--gold); text-decoration:none}
   a:hover{color:var(--gold-hi)}
+  .eyebrow{font-size:12px; letter-spacing:.34em; color:var(--dim); text-transform:uppercase}
+  .serif{font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-weight:500}
 
-  header{display:flex; align-items:center; justify-content:space-between; padding:22px 0}
-  .lockup{display:flex; align-items:center; gap:12px}
-  .lockup svg{width:38px; height:38px}
-  .word{font-weight:700; font-size:26px; letter-spacing:-.02em}
-  .word span{color:var(--gold)}
-  nav a{margin-left:22px; color:var(--dim); font-size:15px}
-  nav a:hover{color:var(--text)}
-
-  .hero{padding:64px 0 56px; text-align:center}
-  .hero svg{width:120px; height:120px; margin-bottom:22px}
-  h1{font-size:clamp(34px, 6vw, 54px); font-weight:700; letter-spacing:-.02em; line-height:1.12}
-  h1 em{font-style:normal; color:var(--gold)}
-  .tagline{font-size:clamp(17px, 2.6vw, 21px); color:var(--dim); margin:18px auto 0; max-width:560px}
-  .badges{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:34px}
-  .badge{
-    display:inline-flex; align-items:center; gap:9px; border-radius:14px; padding:13px 22px;
-    font-weight:700; font-size:16px;
-  }
-  .badge.play{background:var(--gold); color:var(--bg)}
-  .badge.ig{border:1px solid var(--line); color:var(--gold)}
-  .soon{font-size:13px; color:var(--dim); margin-top:12px}
-
-  .slab{
-    margin:30px 0 0; padding:46px 22px; text-align:center;
-    border-top:1px solid var(--line2); border-bottom:1px solid var(--line2);
-    background:var(--bg2);
-  }
-  .slab p{
-    font-size:clamp(22px, 4.4vw, 34px); font-weight:700; letter-spacing:-.01em; color:var(--gold-hi);
-  }
-  .slab small{display:block; margin-top:10px; color:var(--dim); font-size:15px; font-weight:400}
-
-  .features{padding:64px 0}
-  h2{font-size:26px; font-weight:700; margin-bottom:8px}
-  .sub{color:var(--dim); margin-bottom:34px}
-  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px}
+  /* ————— davetiye kartı ————— */
+  .stage{display:flex; align-items:center; justify-content:center; min-height:100vh; padding:56px 18px}
   .card{
-    background:var(--bg2); border:1px solid var(--line2); border-radius:18px; padding:22px;
+    position:relative; width:100%; max-width:600px; text-align:center;
+    border:1px solid var(--gold); outline:1px solid var(--gold-dim); outline-offset:7px;
+    padding:clamp(40px, 8vw, 72px) clamp(26px, 6vw, 58px);
+    background:rgba(25,21,16,.55);
+    animation:rise .8s ease-out both;
   }
-  .card .ic{
-    width:42px; height:42px; border-radius:50%; background:var(--gold); color:var(--bg);
-    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:19px;
-    margin-bottom:14px;
-  }
-  .card .ic.r{background:var(--ribbon); color:var(--text)}
-  .card h3{font-size:18px; margin-bottom:6px}
-  .card p{color:var(--dim); font-size:15px}
-  .card b{color:var(--text); font-weight:500}
+  @keyframes rise{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion: reduce){ .card{animation:none} }
+  .corner{position:absolute; width:20px; height:20px; border:0 solid var(--gold)}
+  .c1{top:-1px; left:-1px; border-top-width:2px; border-left-width:2px}
+  .c2{top:-1px; right:-1px; border-top-width:2px; border-right-width:2px}
+  .c3{bottom:-1px; left:-1px; border-bottom-width:2px; border-left-width:2px}
+  .c4{bottom:-1px; right:-1px; border-bottom-width:2px; border-right-width:2px}
 
-  .privacy-strip{
-    display:flex; gap:14px; align-items:flex-start; background:var(--surface);
-    border:1px solid var(--line); border-radius:18px; padding:20px 22px; margin-top:26px;
+  .card svg.coin{width:74px; height:74px; margin:26px auto 14px; display:block}
+  .word{font-weight:700; font-size:clamp(44px,9vw,58px); letter-spacing:-.02em; line-height:1}
+  .word span{color:var(--gold)}
+  .slogan{font-size:clamp(20px,4vw,25px); color:var(--gold); margin-top:12px}
+  .rule{display:flex; align-items:center; gap:14px; margin:30px auto; max-width:300px}
+  .rule::before,.rule::after{content:""; flex:1; height:1px; background:var(--gold-dim)}
+  .dia{width:7px; height:7px; background:var(--gold); transform:rotate(45deg); flex:none}
+  .when{font-size:13px; letter-spacing:.3em; color:var(--dim)}
+  .lead{color:var(--dim); font-size:16px; max-width:400px; margin:22px auto 0}
+  .lead b{color:var(--text); font-weight:500}
+  .cta{
+    display:inline-block; margin-top:32px; border:1px solid var(--gold); color:var(--gold);
+    padding:14px 30px; font-weight:700; font-size:15px; letter-spacing:.02em;
+    transition:background .18s, color .18s;
   }
-  .privacy-strip p{color:var(--dim); font-size:15px}
+  .cta:hover{background:var(--gold); color:var(--bg)}
+  .scrollhint{margin-top:34px; font-size:12px; color:var(--dim); letter-spacing:.22em}
+  .scrollhint a{color:var(--dim)} .scrollhint a:hover{color:var(--gold)}
 
-  footer{border-top:1px solid var(--line2); padding:30px 0 44px; color:var(--dim); font-size:14px}
-  .foot{display:flex; flex-wrap:wrap; gap:10px 26px; align-items:center; justify-content:space-between}
-  @media (max-width:560px){ nav{display:none} }
+  /* ————— merasim programı ————— */
+  .section{max-width:640px; margin:0 auto; padding:84px 22px; text-align:center}
+  .section .serif{font-size:clamp(26px,5vw,34px); color:var(--gold-hi); margin-top:10px}
+  .program{margin-top:56px}
+  .item{padding:8px 0}
+  .item h3{font-size:14px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); font-weight:700}
+  .item p{color:var(--dim); font-size:16px; max-width:460px; margin:10px auto 0}
+  .item p b{color:var(--text); font-weight:500}
+  .sep{display:flex; align-items:center; justify-content:center; gap:12px; margin:30px 0}
+  .sep::before,.sep::after{content:""; width:52px; height:1px; background:var(--gold-dim)}
+
+  /* ————— söz bandı ————— */
+  .vow{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:64px 22px; text-align:center; background:rgba(25,21,16,.4)}
+  .vow p{font-size:clamp(26px,5.4vw,38px); color:var(--gold-hi)}
+  .vow small{display:block; margin-top:12px; color:var(--dim); font-size:14px; letter-spacing:.2em}
+
+  /* ————— LCV ————— */
+  .lcv{max-width:600px; margin:0 auto; padding:84px 22px 70px; text-align:center}
+  .lcv .box{
+    border:1px solid var(--gold); outline:1px solid var(--gold-dim); outline-offset:6px;
+    padding:44px 30px; background:rgba(25,21,16,.55);
+  }
+  .lcv h2{font-size:15px; letter-spacing:.34em; color:var(--gold); font-weight:700}
+  .lcv p{color:var(--dim); margin:16px auto 26px; max-width:380px}
+  .btn{
+    display:inline-block; background:var(--gold); color:var(--bg); font-weight:700;
+    padding:15px 32px; font-size:15px;
+  }
+  .btn:hover{background:var(--gold-hi); color:var(--bg)}
+  .alt{display:block; margin-top:16px; font-size:14px; color:var(--dim)}
+
+  footer{padding:36px 22px 48px; text-align:center; color:var(--dim); font-size:13px; letter-spacing:.06em}
+  footer .links{margin-top:10px}
+  footer .links a{margin:0 12px}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <div class="lockup">
-      <svg viewBox="0 0 68 68" aria-hidden="true"><circle cx="34" cy="34" r="34" fill="#E8B33A"/><circle cx="34" cy="34" r="26.5" fill="none" stroke="#B98A1F" stroke-width="2.5"/><rect x="29" y="12" width="9" height="40" rx="4.5" fill="#131008"/><rect x="19" y="23" width="27" height="8" rx="4" fill="#131008"/><rect x="29" y="44" width="16" height="8" rx="4" fill="#131008"/></svg>
-      <span class="word">tut<span>.</span></span>
+<!-- davetiye -->
+<section class="stage">
+  <div class="card">
+    <span class="corner c1"></span><span class="corner c2"></span>
+    <span class="corner c3"></span><span class="corner c4"></span>
+
+    <div class="eyebrow">Sayın misafirimiz</div>
+
+    <svg class="coin" viewBox="0 0 120 120" role="img" aria-label="TUT logosu">
+      <circle cx="55" cy="60" r="34" fill="#E8B33A"/>
+      <circle cx="55" cy="60" r="26.5" fill="none" stroke="#B98A1F" stroke-width="2.5"/>
+      <rect x="50" y="38" width="9" height="40" rx="4.5" fill="#131008"/>
+      <rect x="40" y="49" width="27" height="8" rx="4" fill="#131008"/>
+      <rect x="50" y="70" width="16" height="8" rx="4" fill="#131008"/>
+      <circle cx="98" cy="88" r="7" fill="#E8B33A"/>
+    </svg>
+
+    <div class="word">tut<span>.</span></div>
+    <div class="slogan serif">yut diye değil, tut diye verdim</div>
+
+    <div class="rule"><span class="dia"></span></div>
+
+    <div class="when">YAKINDA &nbsp;·&nbsp; GOOGLE PLAY</div>
+    <p class="lead">Düğün takı defterinizin <b>dijitale taşınma merasimine</b> davetlisiniz: kim ne taktı, bugün ne ediyor, sırada hangi düğün var — hepsi tek defterde.</p>
+
+    <a class="cta" href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">Davete icabet: takipte kal</a>
+
+    <div class="scrollhint"><a href="#program">MERASİM PROGRAMI ↓</a></div>
+  </div>
+</section>
+
+<!-- merasim programı -->
+<section class="section" id="program">
+  <div class="eyebrow">Merasim programı</div>
+  <div class="serif">Defterde sizi neler bekliyor</div>
+
+  <div class="program">
+    <div class="item">
+      <h3>Kur merasimi</h3>
+      <p>Çeyrekten Reşat'a, 22 ayar bilezikten dolara — <b>günün fiyatları Altınkaynak'tan tek dokunuşla</b> gelir; alış mı satış mı, tarafını siz seçersiniz.</p>
     </div>
-    <nav>
-      <a href="#ozellikler">Özellikler</a>
-      <a href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">Instagram</a>
-      <a href="gizlilik.html">Gizlilik</a>
-    </nav>
-  </header>
+    <div class="sep"><span class="dia"></span></div>
 
-  <section class="hero">
-    <svg viewBox="0 0 120 120" role="img" aria-label="TUT logosu"><circle cx="55" cy="60" r="34" fill="#E8B33A"/><circle cx="55" cy="60" r="26.5" fill="none" stroke="#B98A1F" stroke-width="2.5"/><rect x="50" y="38" width="9" height="40" rx="4.5" fill="#131008"/><rect x="40" y="49" width="27" height="8" rx="4" fill="#131008"/><rect x="50" y="70" width="16" height="8" rx="4" fill="#131008"/><circle cx="98" cy="88" r="7" fill="#E8B33A"/></svg>
-    <h1>Düğün takı defterin,<br>artık <em>cebinde</em>.</h1>
-    <p class="tagline">Kim ne taktı, siz kime ne taktınız, o gün kaç paraydı, bugün ne ediyor, sırada hangi düğün var — TUT hepsini tek defterde tutar.</p>
-    <div class="badges">
-      <span class="badge play">Yakında Google Play'de</span>
-      <a class="badge ig" href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">@tutdiye.tr</a>
+    <div class="item">
+      <h3>Kıymet takdiri</h3>
+      <p>Tarihli kur defteri sayesinde her takının <b>takıldığı günkü ve bugünkü değeri</b> bilinir; kasanızdaki artış yüzdesi portföy ekranında parlar.</p>
     </div>
-    <p class="soon">Çıktığı gün haber vermemiz için Instagram'da takipte kal.</p>
-  </section>
+    <div class="sep"><span class="dia"></span></div>
 
-</div>
-
-<div class="slab">
-  <p>"Yut diye değil, tut diye verdim."</p>
-  <small>Biz de tutuyoruz — kuruşu kuruşuna, çeyreği çeyreğine.</small>
-</div>
-
-<div class="wrap">
-
-  <section class="features" id="ozellikler">
-    <h2>Defterde neler var?</h2>
-    <p class="sub">Kara kaplı defterin yapamadığı her şey.</p>
-    <div class="grid">
-      <div class="card">
-        <div class="ic">₺</div>
-        <h3>Tek dokunuşla canlı kur</h3>
-        <p>Çeyrekten Reşat'a, 22 ayar bilezikten dolara — <b>günün fiyatları Altınkaynak'tan</b> tek dokunuşla gelir, alış/satış tarafını sen seçersin.</p>
-      </div>
-      <div class="card">
-        <div class="ic">%</div>
-        <h3>O günkü değer, bugünkü değer</h3>
-        <p>Tarihli kur defteri sayesinde her takının <b>takıldığı günkü ve bugünkü değerini</b> görürsün. Kasandaki artış yüzdesi portföy ekranında parlar.</p>
-      </div>
-      <div class="card">
-        <div class="ic r">♥</div>
-        <h3>Kişi kişi gönül borcu</h3>
-        <p>"Zeynep'lere ne takmıştık?" sorusu tarih oldu: her kişiyle aranızdaki <b>takı dengesi</b> hazır — ödeşme hesabı saniyesinde.</p>
-      </div>
-      <div class="card">
-        <div class="ic">7</div>
-        <h3>Sıradaki düğünler</h3>
-        <p>Davetiye gelince yaz, <b>geri sayım</b> başlasın. "Onlar size 1 çeyrek takmıştı" hatırlatmasıyla ayıp olmasın hesabı otomatik.</p>
-      </div>
-      <div class="card">
-        <div class="ic">↗</div>
-        <h3>PDF ve Excel çıktısı</h3>
-        <p>Defterin tamamını <b>şık bir PDF raporu ya da dört sayfalık Excel</b> olarak Mail, WhatsApp veya Drive'a gönder.</p>
-      </div>
-      <div class="card">
-        <div class="ic">🔒</div>
-        <h3>Verin sende kalır</h3>
-        <p>Kayıtlar <b>yalnızca telefonunda</b> saklanır; hesap yok, üyelik yok, reklam yok. Kur verileri için salt-okunur sorgular dışında internete hiçbir şey gönderilmez.</p>
-      </div>
+    <div class="item">
+      <h3>Gönül defteri</h3>
+      <p>"Zeynep'lere ne takmıştık?" sorusu tarihe karışır: her kişiyle aranızdaki <b>takı dengesi ve ödeşme hesabı</b> her an hazırdır.</p>
     </div>
+    <div class="sep"><span class="dia"></span></div>
 
-    <div class="privacy-strip">
-      <svg width="30" height="30" viewBox="0 0 68 68" style="flex:none"><circle cx="34" cy="34" r="34" fill="#E8B33A"/><rect x="29" y="12" width="9" height="40" rx="4.5" fill="#131008"/><rect x="19" y="23" width="27" height="8" rx="4" fill="#131008"/><rect x="29" y="44" width="16" height="8" rx="4" fill="#131008"/></svg>
-      <p>Gizlilik bizim için slogan değil, tasarım kararı. Ayrıntılar için <a href="gizlilik.html">gizlilik politikamızı</a> okuyabilirsin.</p>
+    <div class="item">
+      <h3>Davet takvimi</h3>
+      <p>Davetiye gelince yazın, <b>geri sayım</b> başlasın. "Onlar size bir çeyrek takmıştı" hatırlatmasıyla ayıp olmasın hesabı kendiliğinden yapılır.</p>
     </div>
-  </section>
+    <div class="sep"><span class="dia"></span></div>
 
-</div>
+    <div class="item">
+      <h3>Hatıra defteri</h3>
+      <p>Defterin tamamı <b>zarif bir PDF raporu ya da dört sayfalık Excel</b> olarak Mail, WhatsApp veya Drive'a gönderilir.</p>
+    </div>
+    <div class="sep"><span class="dia"></span></div>
+
+    <div class="item">
+      <h3>Mahremiyet</h3>
+      <p>Kayıtlarınız <b>yalnızca telefonunuzda</b> saklanır. Hesap yok, üyelik yok, reklam yok — <a href="gizlilik.html">gizlilik politikamız</a> iki dakikalık dürüst bir metindir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- söz -->
+<section class="vow">
+  <p class="serif">"Yut diye değil, tut diye verdim."</p>
+  <small>BİZ DE TUTUYORUZ — ÇEYREĞİ ÇEYREĞİNE</small>
+</section>
+
+<!-- LCV -->
+<section class="lcv">
+  <div class="box">
+    <h2>L.C.V.</h2>
+    <p>Uygulama Google Play'de yayınlandığında ilk siz haberdar olun. Lütfen cevabınızı takiple bildiriniz.</p>
+    <a class="btn" href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">@tutdiye.tr'yi takip et</a>
+    <span class="alt">ya da ara sıra <b>tutdiye.com</b>'a uğrayın — kapımız açık.</span>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap foot">
-    <span>© 2026 TUT — tutdiye.com</span>
-    <span>
-      <a href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">Instagram</a> ·
-      <a href="gizlilik.html">Gizlilik Politikası</a> ·
-      <a href="mailto:merhaba@tutdiye.com">merhaba@tutdiye.com</a>
-    </span>
+  <div>© 2026 TUT — tutdiye.com</div>
+  <div class="links">
+    <a href="https://instagram.com/tutdiye.tr" target="_blank" rel="noopener">Instagram</a>
+    <a href="gizlilik.html">Gizlilik Politikası</a>
+    <a href="mailto:merhaba@tutdiye.com">merhaba@tutdiye.com</a>
   </div>
 </footer>
 
